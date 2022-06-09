@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 use anchor_lang::solana_program::entrypoint::ProgramResult;
 use chainlink_solana as chainlink;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("AsNPLVqvCJxatnjawzYUTiVS3WqjsMwt8PgZ7r93ozAn");
 
 #[program]
 pub mod chainlink_solana_dapp {
@@ -24,9 +24,11 @@ pub struct Execute<'info> {
     #[account(init, payer=user, space=100)]
     pub result_account: Account<'info, ResultAccount>,
     #[account(mut)]
-    pub user: Signer<'info>
-    pub system_program: Program<'info> System>,
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+    /// CHECK;
     pub chainlink_program: AccountInfo<'info>,
+    /// CHECK;
     pub chainlink_feed: AccountInfo<'info>
 }
 
